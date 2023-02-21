@@ -22,6 +22,8 @@ from app01 import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # 注册在子路由中
-    path('app01/', include('app01.urls'))
+    path('app01/', include(('app01.urls','app01'), namespace='app01')),
     # path('app01/index/', views.index),
+    path('users/', include('users.urls')),
+    path('view/', include('view_demo.urls')),
 ]

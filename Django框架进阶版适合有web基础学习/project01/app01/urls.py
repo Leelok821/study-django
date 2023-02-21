@@ -2,7 +2,7 @@ from django.urls import path
 from app01 import views
 
 urlpatterns = [
-    path('index/', views.index),
+    path('index/', views.index, name='index'),
     path('index224/', views.index2),
     path('weather/<str:city>', views.weather),
     path('get_qurey_params/', views.get_qurey_params),
