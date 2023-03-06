@@ -3,11 +3,17 @@ from django.views import View
 from django.http import HttpResponse
 from django.utils.decorators import method_decorator
 
+import time
+
+
 # Create your views here.
 def decora(func):
     def warp(request, *agrs, **kargs):
-        print('执行装饰器')
-        return func(request, *agrs, **kargs)
+        start = time.time()
+        reslt = func(request, *agrs, **kargs)
+        stop = time.time()
+        print(f'运行时间:{stop - start}')
+        return reslt
     return warp
 
 
@@ -21,5 +27,10 @@ class VeiwsDemo(View):
         return HttpResponse('这里的Veiw类视图的post方法')
 
 
+@decora
+def add(name):
+    name = name + 1
+    print(1+2)
 
+add(11)
 
