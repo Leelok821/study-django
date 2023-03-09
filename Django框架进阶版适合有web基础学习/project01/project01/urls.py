@@ -26,5 +26,5 @@ urlpatterns = [
     # path('app01/index/', views.index),
     path('users/', include('users.urls')),
     path('view/', include('view_demo.urls')),
-    path('booktest/', include('booktest.urls')),
+    path('/', include('booktest.urls')),
 ]
